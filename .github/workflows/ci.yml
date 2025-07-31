@@ -8,11 +8,12 @@ on:
 
 jobs:
     test:
-        name: test
+        name: Test
         runs-on: ubuntu-latest
-        
+
         services:
-        postrges: postgres:12
+        postrges: 
+            image: postgres:12
         env:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: 2356
