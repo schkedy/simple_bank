@@ -23,13 +23,11 @@ jobs:
         name: test
         runs-on: ubuntu-latest
     steps:
-
         - name: Set up Go 1.x
         uses: actions/setup-go@v2
         with:
             go-version: ^1.22
         id: go
-
         - name: Check out code into the Go module directory
         uses: actions/checkout@v2
         - name: Install golang-migrate
