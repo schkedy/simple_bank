@@ -7,11 +7,10 @@ on:
     branches: [ main ]
 
 jobs:
-
-    
-
     test:
-
+        name: test
+        runs-on: ubuntu-latest
+        
         services:
         postrges: postgres:12
         env:
@@ -23,9 +22,7 @@ jobs:
             --health-interval 10s
             --health-timeout 5s
             --health-retires 5
-            
-        name: test
-        runs-on: ubuntu-latest
+
         steps:
         - name: Set up Go 1.22
         uses: actions/setup-go@v2
