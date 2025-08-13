@@ -22,7 +22,7 @@ type TransferTxResult struct {
 var txKey = struct{}{}
 
 // Make transfer, make two entries, update accounts balance
-func (store *Store) TransferTx(ctx context.Context, arg TransferTxParams) (TransferTxResult, error) {
+func (store *SQLStore) TransferTx(ctx context.Context, arg TransferTxParams) (TransferTxResult, error) {
 	var result TransferTxResult
 
 	err := store.execTx(ctx, func(q *Queries) error {

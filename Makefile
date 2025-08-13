@@ -15,11 +15,15 @@ migratedown:
 sqlc:
 	sqlc generate
 
+mock:
+	mockgen -package mockdb -destination db/mock/store.go simple_bank/db/sqlc Store
 test:
 	go test -v -cover -coverprofile=coverage.out ./...
 
+server:
+	go run main.go
 
 covershow:
 	go tool cover -html=coverage.out -o coverage.html && firefox coverage.html
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc test covershow
+.PHONY: postgres createdb dropdb migrateup migratedown sqlc test covershow mock
