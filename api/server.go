@@ -19,6 +19,7 @@ type Server struct {
 }
 
 func (server *Server) Start(address string) error {
+	gin.SetMode(gin.ReleaseMode)
 	return server.router.Run(address)
 }
 
