@@ -27,19 +27,19 @@ jobs:
           --health-retries 5
 
     steps:
-      - name: Set up Go 1.22
+      - name: Set up Go 1.25
         uses: actions/setup-go@v2
         with:
-          go-version: 1.22
+          go-version: 1.25
         id: go
       - name: Check out code into the Go module directory
         uses: actions/checkout@v2
       - name: Install golang-migrate
         run: |
-          curl -L https://github.com/golang-migrate/migrate/releases/download/v4.12.2/migrate.linux-amd64.tar.gz -o migrate.tar.gz
+          curl -L https://github.com/golang-migrate/migrate/releases/download/v4.18.3/migrate.linux-amd64.tar.gz -o migrate.tar.gz
           tar -xzf migrate.tar.gz
-          chmod +x migrate.linux-amd64
-          sudo mv migrate.linux-amd64 /usr/local/bin/migrate
+          chmod +x migrate
+          sudo mv migrate /usr/local/bin/migrate
           which migrate
           migrate -version
 

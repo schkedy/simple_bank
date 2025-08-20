@@ -32,6 +32,11 @@ func RandomOwner() string {
 	return RandomString(6)
 }
 
+func RandomEmail() string {
+	s := RandomString(6) + "@email.com"
+	return s
+}
+
 func RandomMoney() int64 {
 	return RandomInt(0, 1000)
 }

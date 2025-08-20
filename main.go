@@ -3,9 +3,9 @@ package main
 import (
 	"database/sql"
 	"log"
-	"simple_bank/db/api"
+	"simple_bank/api"
 	db "simple_bank/db/sqlc"
-	"simple_bank/db/util"
+	"simple_bank/util"
 
 	_ "github.com/lib/pq"
 )
@@ -23,7 +23,10 @@ func main() {
 	}
 
 	store := db.NewStore(conn)
-	server := api.NewServer(store)
+	server, err := api.NewServer(conf, store)
+	if err != nil {
+		log.Fatal("Error while setting server", err)
+	}
 
 	err = server.Start(conf.SERVER_ADDRESS)
 	if err != nil {
